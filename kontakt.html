@@ -1,0 +1,153 @@
+<?php
+
+$to = "sorlandsstudenten@gmail.com";
+$subject = "Kommer fra Sørlandsstudenten";
+
+$name = $_POST["name"];
+$email = $_POST["email"];
+$topic = $_POST["topic"];
+$message = $_POST["message"];
+
+$body = <<<EMAIL
+
+HEI, jeg heter $name, og min topic er $topic.
+
+$message
+
+Fra $name
+
+Min e-post addressen er $email
+
+EMAIL;
+
+$header = "From: $email";
+
+if($_POST){
+	if($name == "" || $email = "" || $message = "")
+	{
+		$feedback = "Fill out all the fields";
+	}
+	else
+	{
+		mail($to, $subsject, $body, $header);
+		$feedback = "Takk for meldigen.";
+	}
+}
+?>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Sørlandsstudenten: Kontakt</title>
+	<meta charset="utf-8" />
+	
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	<script src="js/modernizr.custom.js"></script>	
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+</head>
+
+<body>
+	<section class="banner">
+	
+		<div class="topbanner">
+    	<a href="http://sorlandsstudenten.net/"><img src="images/logo.png" alt="TEAM AWESOME"></a>
+		</div>
+		
+		<div class="information">
+			<h1>Sørlandsstudenten</h1>
+			<p>- For studenter, av studenter</p>
+		</div>
+		
+	</section>
+	
+	<header class="mainheader">
+
+		<nav>
+			<ul>
+				<li><a href="index.html">Hjem</a></li>
+				<li><a href="events.html">Events</a></li>
+				<li><a href="#">Galleri</a></li>
+				<li class="active"><a href="kontakt.html">Kontakt</a></li>
+			</ul>
+		</nav>
+	</header>
+	
+	<div class="maincontent">
+		<div class="content">
+			<div class="content-left">	
+				<article class="leftcontent">
+					
+					<header>
+						<h2>Spør oss</h2>
+						<p> Ta kontakt med oss hvis det er noe du lurer på eller vil gi oss tilbakemelding. Du kan ta kontakt med oss via facebook, twitter og mail.</p>
+						<ul>
+						  <li> UiA, Kristiansand 4686 Norge</li>
+						  <li> Telefon: +47 951 62 760</li>
+						  <li> E-post: sorlandsstudenten@gmail.com</li>
+					  </ul>
+						<p><br>
+					  </p>
+					</header>
+					</content>
+					
+				</article>
+			
+			<div class="content-right">
+				<article class="rightcontentmail">
+				
+					<header>
+						<h2>Kontakt oss via mail</h2>
+					</header>
+					
+					<div class="understrekkontakt"></div>
+
+                            	<p id="feedback"></p>
+                            	<p><?php echo $feedback; ?></p>
+			     	 			<form action="?" method="post">
+									<ul>
+										<li class="field">
+											<!--Name-->
+	                						<input class="normal text input" type="text" placeholder="Navn" name="name" id="name">
+	                						<!--Email-->
+						                	<input class="normal text input" type="email" placeholder="E-post" name="email" id="email">
+						              	</li>
+						              		<!--Massage-->
+						              	<li class="prepend field">
+						              		<textarea class="input textarea" placeholder="Melding" rows="3" name="message" id="message"></textarea>
+						              	</li>
+						            </ul>
+						            <!--Button for submit-->
+						            <div class="medium primary btn">
+										<input type="submit" value="Send">
+						            </div>
+						            <!--End Button for submit-->
+								</form>
+			     	 		</div>
+			     	 		<!-- End Form  Contact-->
+			     	 	</div>
+			     	 	<!--End Wrapper Contact-->
+
+
+						</div>
+                        </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="maincontent map">
+			<iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.no/maps?ie=UTF8&amp;t=m&amp;ll=58.165338,7.992554&amp;spn=0.003961,0.00912&amp;z=16&amp;output=embed"></iframe>
+		</div>
+	</div>
+	<footer class="mainfooter">
+		<p>Copyright &copy; 2013 <a href="https://www.facebook.com/sorlandsstudenten">Team Awesome</a></p>
+	</footer>
+
+</body>
+</html>
